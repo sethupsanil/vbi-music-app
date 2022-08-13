@@ -1,3 +1,4 @@
+import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -8,6 +9,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './header/header.component';
 import { LeftSidebarComponent } from './left-sidebar/left-sidebar.component';
 import { CurrentTrackComponent } from './current-track/current-track.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,14 @@ import { CurrentTrackComponent } from './current-track/current-track.component';
     LayoutComponent,
     HeaderComponent,
     LeftSidebarComponent,
-    CurrentTrackComponent
-    ],
+    CurrentTrackComponent,
+    HomepageComponent
+
+  ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

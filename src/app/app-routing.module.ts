@@ -1,10 +1,11 @@
 import { PlaylistListComponent } from './playlist-list/playlist-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'playlist', pathMatch: 'full' },
-  { path: 'playlist', component: PlaylistListComponent }
+  { path: '', component: HomepageComponent },
+  { path: 'playlist/:index', component: PlaylistListComponent }
 ];
 
 @NgModule({
