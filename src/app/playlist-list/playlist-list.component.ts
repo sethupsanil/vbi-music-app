@@ -32,6 +32,8 @@ export class PlaylistListComponent implements OnInit, OnDestroy {
       this._activated.params.subscribe(
         (params) => {
           this.index = +params['index'];
+          this.getPlaylistSongFromStorage();
+
         }
       )
     );
@@ -45,14 +47,16 @@ export class PlaylistListComponent implements OnInit, OnDestroy {
           song.duration = `${this._helper.randomIntFromInterval(1, 4)}:${this._helper.randomIntFromInterval()}`;
           song.albumName = this._helper.randomStringFromInterval();
         })
-        this.getPlaylistSongFromStorage();
       })
     )
   }
 
   getPlaylistSongFromStorage() {
+
     const playlist = JSON.parse(JSON.stringify(this._helper.playListMenu[this.index - 1]));
     this.playListSongs = playlist?.songs ? playlist.songs : [];
+    console.log(this._helper.playListMenu,playlist);
+
   }
 
   trackByFn(_index: number, item: PlayList) {
