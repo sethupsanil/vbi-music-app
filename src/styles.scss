@@ -393,7 +393,7 @@ body {
 
   .playlist {
 
-    display: none;
+    // display: none;
 
   }
 
@@ -746,7 +746,6 @@ body {
       height: 320px;
       border-bottom: 1px solid $light-black;
       position: relative;
-      background-image: url(https://www.vecteezy.com/free-vector/music-banner);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -769,7 +768,7 @@ body {
       height: 100%;
       z-index: 0;
       opacity: 0.15;
-      background-image: url(https://static.vecteezy.com/system/resources/thumbnails/005/004/846/small/abstract-sound-wave-curve-background-illustration-with-gold-and-blue-particles-creative-colorful-equalizer-and-spectrum-music-for-banner-and-poster-vector.jpg);
+      background-image: url(/assets/header.png);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: top;
@@ -1861,14 +1860,16 @@ button {
 }
 
 
-
-
-
 app-left-sidebar {
   width: 230px;
 }
 app-homepage, app-playlist-list {
   width: calc(100% - 230px);
+}
+app-current-track{
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
 }
 
 .media-cards {
