@@ -12,7 +12,12 @@ export class ApiService {
   constructor(
     private _http: HttpClient
   ) { }
+
   getAlbums(): Observable<any> {
     return this._http.get(`${environment.baseUrl}${ApiEndPoints.albums}`)
+  }
+
+  getPhotos(): Observable<any> {
+    return this._http.get(`${environment.baseUrl}${ApiEndPoints.photos}`)
   }
 }

@@ -1,3 +1,4 @@
 export const ApiEndPoints = {
-  albums:'albums'
+  albums:'albums',
+  photos:'photos'
 }
