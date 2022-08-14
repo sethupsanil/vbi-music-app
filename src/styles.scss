@@ -7,7 +7,7 @@ $grey: rgb(170, 170, 170);
 $sand: rgb(200, 200, 200);
 $white: rgb(255, 255, 255);
 $blue: #4688d7;
-
+$back-shade:#565252;
 // Spacing
 
 $padding-xs  : 5px;
@@ -769,7 +769,7 @@ body {
       height: 100%;
       z-index: 0;
       opacity: 0.15;
-      background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/7022/g-eazy.png);
+      // background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/7022/g-eazy.png);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: top;
@@ -1198,6 +1198,7 @@ body {
 
       margin-left: $margin * 2;
       color: $sand;
+      cursor: pointer;
 
       .added {
         color: $sand;
@@ -1254,7 +1255,9 @@ body {
 
 
     }
-
+  &__album{
+color: $back-shade;
+  }
     &__explicit {
 
       .label {
@@ -1285,6 +1288,7 @@ body {
       padding-right: $padding-sm;
       font-size: $large;
       color: $grey;
+      cursor: pointer;
     }
 
   }

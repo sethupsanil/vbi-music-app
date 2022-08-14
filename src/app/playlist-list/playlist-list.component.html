@@ -3,26 +3,24 @@
   <div class="artist is-verified">
     <div class="artist__header">
       <div class="artist__info">
-        <div class="profile__img">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/7022/g_eazy_propic.jpg" alt="G-Eazy" />
-        </div>
+
         <div class="artist__info__meta">
-          <div class="artist__info__type">Artist</div>
-          <div class="artist__info__name">G-Eazy</div>
+          <div class="artist__info__type">Playlist</div>
+          <div class="artist__info__name">My Playlist #{{index}}</div>
           <div class="artist__info__actions">
             <button class="button-dark">
               <i class="ion-ios-play"></i>
               Play
             </button>
-            <button class="button-light more">
+            <button (click)="deletePlaylist()" class="button-light more">
               <i class="ion-ios-trash"></i>
             </button>
           </div>
         </div>
       </div>
       <div class="artist__listeners">
-        <div class="artist__listeners__count">15,662,810</div>
-        <div class="artist__listeners__label">Monthly Listeners</div>
+        <div class="artist__listeners__count">{{playListSongs.length}}</div>
+        <div class="artist__listeners__label">Songs</div>
       </div>
     </div>
     <div class="artist__content">
@@ -42,11 +40,12 @@
                   <div [title]="'Remove '+item.title" (click)="removeSongFromPlaylist(item,i)" class="track__added">
                     <i class="ion-minus"></i>
                   </div>
-                  <div class="track__title">{{item.title}}</div>
-                  <div class="track__explicit">
-                    <span class="label">Explicit</span>
+                  <div class="track__title">{{item.title}}
+                    <div class="track__album">
+                      {{item.albumName}}
+                    </div>
                   </div>
-                  <div class="track__plays">147,544,165</div>
+                  <div class="track__plays">{{item.duration}}</div>
                 </div>
               </div>
               <!-- / -->
@@ -71,9 +70,13 @@
                     <div class="track" *ngFor="let item of allSongs ;let i=index;trackBy:trackByFn">
                       <div class="track__number">{{i+1}}</div>
 
-                      <div class="track__title">{{item.title}}</div>
+                      <div class="track__title">{{item.title}}
+                        <div class="track__album">
+                          {{item.albumName}}
+                        </div>
+                      </div>
 
-                      <div class="track__length">1:11</div>
+                      <div class="track__length">{{item.duration}}</div>
                       <div (click)="addSongToPlaylist(item,i)" title="Add to Playlist" class="track__popularity">
                         <i class="ion-plus not-added"></i>
                       </div>

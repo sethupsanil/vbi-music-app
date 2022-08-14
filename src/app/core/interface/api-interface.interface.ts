@@ -4,7 +4,10 @@ export interface Albums {
   title: string;
 }
 
-export interface PlayList extends Albums { }
+export interface PlayList extends Albums {
+  duration?: string;
+  albumName?: string;
+}
 export interface PlayListMenu {
   name: string;
   songs?: Albums[]
