@@ -769,7 +769,7 @@ body {
       height: 100%;
       z-index: 0;
       opacity: 0.15;
-      // background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/7022/g-eazy.png);
+      background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/7022/g-eazy.png);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: top;
@@ -1858,4 +1858,29 @@ button {
   font-size: $x-small * 1.2;
   margin-bottom: $margin-sm;
 
+}
+
+
+
+
+
+app-left-sidebar {
+  width: 230px;
+}
+app-homepage, app-playlist-list {
+  width: calc(100% - 230px);
+}
+
+.media-cards {
+  .media-card__footer {
+    height: calc(100% - 200px);
+  }
+}
+@media (max-width:768px) {
+  app-left-sidebar {
+    width: 100%;
+  }
+  app-homepage, app-playlist-list {
+    width: 100%;
+  }
 }

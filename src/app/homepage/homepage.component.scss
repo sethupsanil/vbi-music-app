@@ -1,3 +1,18 @@
 .content__middle{
   width: 100%;
 }
+
+.artist__info__meta {
+  width: 100%;
+}
+.search {
+  width: 100%;
+  max-width: 300px;
+  input[type="text"] {
+    background: #373737;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+  }
+}
