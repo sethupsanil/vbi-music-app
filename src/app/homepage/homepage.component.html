@@ -1,65 +1,73 @@
+<div class="content__middle">
 
+  <div class="artist is-verified">
 
+    <div class="artist__header">
 
-  <div class="content__middle">
+      <div class="artist__info">
 
-    <div class="artist is-verified">
+        <div class="artist__info__meta">
 
-      <div class="artist__header">
+          <div class="artist__info__name">Welcome</div>
 
-        <div class="artist__info">
-
-          <div class="artist__info__meta">
-
-            <div class="artist__info__name">Welcome</div>
-
-            <div class="artist__info__actions">
-              <div class="search">
-                <input type="text" placeholder="Search" />
-              </div>
+          <div class="artist__info__actions">
+            <div class="search">
+              <input type="text" placeholder="Search" />
             </div>
-
           </div>
 
-
         </div>
 
-        <div class="artist__listeners">
-
-          <div class="artist__listeners__count">{{albumsList.length}}</div>
-
-          <div class="artist__listeners__label">Songs</div>
-
-        </div>
 
       </div>
 
-      <div class="artist__content">
+      <div class="artist__listeners">
 
-        <div class="tab-content">
-          <!-- Related Artists -->
-          <div role="tabpanel" class="tab-pane active" id="related-artists">
+        <div class="artist__listeners__count">{{albumsList.length}}</div>
 
-            <div class="media-cards">
+        <div class="artist__listeners__label">Songs</div>
 
+      </div>
+
+    </div>
+
+    <div class="artist__content">
+
+      <div class="tab-content">
+        <!-- Related Artists -->
+        <div role="tabpanel" class="tab-pane active" id="related-artists">
+
+          <div class="media-cards">
+            <ng-container *ngIf="albumsList.length!==0">
               <div *ngFor="let item of albumsList; let i=index" class="media-card">
 
-                <div class="media-card__image"
-                  style="background-image: url({{item.thumbnailUrl}});">
+                <div class="media-card__image" style="background-image: url({{item.thumbnailUrl}});">
 
                   <i class="ion-ios-play"></i>
 
                 </div>
 
-                <a class="media-card__footer">Hoodie Allen</a>
+                <a class="media-card__footer">{{item.title}}</a>
 
               </div>
-            </div>
+            </ng-container>
+            <!--preload data-->
+            <ng-container *ngIf="albumsList.length==0">
+              <div *ngFor="let item of tempData; let i=index" class="media-card">
+
+                <div class="media-card__image" style="background-image: url({{item.thumbnailUrl}});">
+                </div>
+
+                <a class="media-card__footer">-</a>
+
+              </div>
+            </ng-container>
+            <!--preload data end-->
 
           </div>
-          <!-- / -->
 
         </div>
+        <!-- / -->
 
       </div>
 
@@ -67,5 +75,4 @@
 
   </div>
 
-
-
+</div>
