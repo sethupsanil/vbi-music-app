@@ -10,7 +10,7 @@ export class HelperService {
   public playListMenu: PlayListMenu[] = [];
 
   constructor(
-    private _router:Router
+    private _router: Router
   ) { }
 
   setLocalStorage(name: string, value: object) {
@@ -23,7 +23,7 @@ export class HelperService {
       songs: []
     });
     this.setLocalStorage(localStorageKey.playlist, this.playListMenu);
-    this._router.navigate([`playlist/${this.playListMenu.length   }`])
+    this._router.navigate([`playlist/${this.playListMenu.length}`])
 
   }
 
@@ -37,10 +37,13 @@ export class HelperService {
     this.setLocalStorage(localStorageKey.playlist, this.playListMenu);
   }
   deletePlaylist(index: number) {
-    console.log(index);
-
-    // this.playListMenu.splice(index, 1);
-    // this.setLocalStorage(localStorageKey.playlist, this.playListMenu);
+    this.playListMenu.splice(index, 1);
+    this.playListMenu.forEach((list, i) => {
+      if (index <= i) {
+        list.name = `My Playlist #${+(list.name.split('#')[1]) - 1}`
+      }
+    })
+    this.setLocalStorage(localStorageKey.playlist, this.playListMenu);
   }
   setPlaylistMenu() {
     this.playListMenu = this.getLocalStorage(localStorageKey.playlist) ? this.getLocalStorage(localStorageKey.playlist) : [];
