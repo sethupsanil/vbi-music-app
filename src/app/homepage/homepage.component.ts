@@ -12,6 +12,9 @@ import { dummyData } from './temp.data';
 export class HomepageComponent implements OnInit, OnDestroy {
   public albumsList: Photo[] = [];
   public tempData: Photo[] = dummyData;
+  public searchKey!: string;
+  public loader: boolean = true;
+  private albumsSongTemp: Photo[] = [];
   private subs = new SubSink();
   constructor(
     private _api: ApiService
@@ -23,8 +26,20 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   getAlbumsListFromAPi() {
     this.subs.add(
-      this._api.getPhotos().subscribe(res => this.albumsList = res)
+      this._api.getPhotos().subscribe(res => {
+        this.albumsList = res;
+        this.albumsSongTemp = res;
+        this.loader = false;
+      })
     );
+  }
+
+  onSearch() {
+    if (this.searchKey === '') {
+      this.albumsList = this.albumsSongTemp;
+    }
+    this.albumsList = this.albumsSongTemp.filter(song => JSON.stringify(song).toLowerCase().includes(this.searchKey));
+
   }
 
   ngOnDestroy(): void {

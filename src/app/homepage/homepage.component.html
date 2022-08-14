@@ -12,7 +12,7 @@
 
           <div class="artist__info__actions">
             <div class="search">
-              <input type="text" placeholder="Search" />
+              <input type="text" [(ngModel)]="searchKey" (keyup)="onSearch()" placeholder="Search" />
             </div>
           </div>
 
@@ -52,14 +52,13 @@
               </div>
             </ng-container>
             <!--preload data-->
-            <ng-container *ngIf="albumsList.length==0">
-              <div *ngFor="let item of tempData; let i=index" class="media-card">
-
-                <div class="media-card__image" style="background-image: url({{item.thumbnailUrl}});">
+            <ng-container *ngIf="albumsList.length==0 && loader">
+              <div *ngFor="let item of tempData;" class="placeholder-vertical">
+                <div class="cover"></div>
+                <div class="content">
+                  <div class="text-placeholder"></div>
+                  <div class="text-placeholder"></div>
                 </div>
-
-                <a class="media-card__footer">-</a>
-
               </div>
             </ng-container>
             <!--preload data end-->

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { PlayListMenu, Albums } from './../interface/api-interface.interface';
 import { Injectable } from '@angular/core';
 import { localStorageKey } from '../config/constants';
@@ -8,7 +9,9 @@ import { localStorageKey } from '../config/constants';
 export class HelperService {
   public playListMenu: PlayListMenu[] = [];
 
-  constructor() { }
+  constructor(
+    private _router:Router
+  ) { }
 
   setLocalStorage(name: string, value: object) {
     localStorage.setItem(name, JSON.stringify(value));
@@ -20,6 +23,8 @@ export class HelperService {
       songs: []
     });
     this.setLocalStorage(localStorageKey.playlist, this.playListMenu);
+    this._router.navigate([`playlist/${this.playListMenu.length   }`])
+
   }
 
   addSongsToPlaylist(song: Albums, index: number) {
@@ -32,8 +37,10 @@ export class HelperService {
     this.setLocalStorage(localStorageKey.playlist, this.playListMenu);
   }
   deletePlaylist(index: number) {
-    this.playListMenu.splice(index, 1);
-    this.setLocalStorage(localStorageKey.playlist, this.playListMenu);
+    console.log(index);
+
+    // this.playListMenu.splice(index, 1);
+    // this.setLocalStorage(localStorageKey.playlist, this.playListMenu);
   }
   setPlaylistMenu() {
     this.playListMenu = this.getLocalStorage(localStorageKey.playlist) ? this.getLocalStorage(localStorageKey.playlist) : [];
