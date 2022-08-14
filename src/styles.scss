@@ -39,7 +39,9 @@ $xxx-large: 52px;
 
 
 // ===== Styles ==== //
-
+.app-playlist-list{
+  width: 100%;
+}
 body {
   background: $black;
   font-family: 'Roboto', sans-serif;

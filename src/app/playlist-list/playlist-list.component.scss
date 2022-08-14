@@ -1,3 +1,10 @@
 .content__middle{
   width: 100%;
 }
+.section-title{
+  display: flex;
+  justify-content: space-between;
+}
+.section-icon{
+  cursor: pointer;
+}

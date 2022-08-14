@@ -74,6 +74,10 @@ export class PlaylistListComponent implements OnInit, OnDestroy {
     this._helper.deletePlaylist(this.index - 1);
     this._router.navigate(['/'])
   }
+  shufflePlaylist(){
+    this.playListSongs=this._helper.shuffle(this.playListSongs);
+    this._helper.removeSongsToPlaylist(JSON.parse(JSON.stringify(this.playListSongs)), this.index - 1)
+  }
   ngOnDestroy(): void {
     this.subs.unsubscribe();
   }
